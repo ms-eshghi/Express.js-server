@@ -13,7 +13,7 @@ document
     });
 
     const result = await response.json();
-    alert(result.msg);
+    alert(result.message);
     document.getElementById("userForm").reset();
   });
 
@@ -21,7 +21,8 @@ document
   .getElementById("getUsers")
   .addEventListener("click", async function () {
     const response = await fetch("/users");
-    const users = await response.json();
+    const result = await response.json();
+    const users = result.users;
 
     const list = document.getElementById("userList");
     list.innerHTML = "";

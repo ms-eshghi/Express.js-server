@@ -12,6 +12,7 @@ This project is a complete exercise in building your **first Express.js server**
 
 - **Route:** `GET /hello`
 - **Response:**
+
 ```json
 { "msg": "Hello world!" }
 
@@ -91,3 +92,4 @@ TypeScript
 Nodemon + tsc-watch (for development)
 HTML + vanilla JS (frontend)
 
+```

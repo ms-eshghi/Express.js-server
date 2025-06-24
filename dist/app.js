@@ -7,29 +7,29 @@ const express_1 = __importDefault(require("express"));
 const path_1 = __importDefault(require("path"));
 const app = (0, express_1.default)();
 app.use(express_1.default.json());
-app.use(express_1.default.static(path_1.default.join(__dirname, '../public')));
-app.get('/', (_req, res) => {
-    res.sendFile(path_1.default.join(__dirname, '../public/index.html'));
+app.use(express_1.default.static(path_1.default.join(__dirname, "../public")));
+app.get("/", (_req, res) => {
+    res.sendFile(path_1.default.join(__dirname, "../public/index.html"));
 });
-app.use(express_1.default.static(path_1.default.join(__dirname, '../public')));
-app.get('/hello', (_req, res) => {
-    res.json({ msg: 'Hello world!' });
+app.use(express_1.default.static(path_1.default.join(__dirname, "../public")));
+app.get("/hello", (_req, res) => {
+    res.json({ msg: "Hello world!" });
 });
-app.get('/echo/:id', (req, res) => {
+app.get("/echo/:id", (req, res) => {
     res.json({ id: req.params.id });
 });
-app.post('/sum', (req, res) => {
+app.post("/sum", (req, res) => {
     const numbers = req.body.numbers;
     const sum = numbers.reduce((a, b) => a + b, 0);
     res.json({ sum });
 });
 const users = [];
-app.post('/users', (req, res) => {
+app.post("/users", (req, res) => {
     const { name, email } = req.body;
     users.push({ name, email });
-    res.json({ msg: 'User successfully added' });
+    res.json({ message: "User successfully added" });
 });
-app.get('/users', (_req, res) => {
-    res.status(201).json(users);
+app.get("/users", (_req, res) => {
+    res.status(201).json({ users });
 });
 exports.default = app;
