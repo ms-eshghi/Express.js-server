@@ -24,7 +24,7 @@ app.post("/sum", (req: Request, res: Response) => {
   res.json({ sum });
 });
 
-type TUser = {
+export type TUser = {
   name: string;
   email: string;
 };
