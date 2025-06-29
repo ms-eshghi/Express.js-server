@@ -22,10 +22,7 @@ app.post("/sum", (req, res) => {
     const sum = numbers.reduce((a, b) => a + b, 0);
     res.json({ sum });
 });
-const users = [
-    { name: "Alice", email: "alice@example.com" },
-    { name: "Bob", email: "bob@example.com" }
-];
+const users = [];
 app.post("/users", (req, res) => {
     const user = req.body;
     users.push(user);

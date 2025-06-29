@@ -29,10 +29,7 @@ export type TUser = {
   email: string;
 };
 
-const users: TUser[] = [
-  { name: "Alice", email: "alice@example.com" },
-  { name: "Bob", email: "bob@example.com" }
-];
+const users: TUser[] = [];
 
 app.post("/users", (req: Request, res: Response) => {
   const user: TUser = req.body;
