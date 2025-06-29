@@ -18,7 +18,7 @@ document
   });
 
 document
-  .getElementById("getUsers")
+  .getElementById("getUser")
   .addEventListener("click", async function () {
     const response = await fetch("/users");
     const result = await response.json();
