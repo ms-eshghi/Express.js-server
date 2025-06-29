@@ -10,8 +10,6 @@ app.get("/", (_req: Request, res: Response) => {
   res.sendFile(path.join(__dirname, "../public/index.html"));
 });
 
-app.use(express.static(path.join(__dirname, "../public")));
-
 app.get("/hello", (_req: Request, res: Response) => {
   res.json({ msg: "Hello world!" });
 });
@@ -26,17 +24,22 @@ app.post("/sum", (req: Request, res: Response) => {
   res.json({ sum });
 });
 
-type TUser = { name: string; email: string };
+type TUser = {
+  name: string;
+  email: string;
+};
+
 const users: TUser[] = [];
 
 app.post("/users", (req: Request, res: Response) => {
-  const { name, email } = req.body;
-  users.push({ name, email });
+  const user: TUser = req.body;
+  users.push(user);
   res.json({ message: "User successfully added" });
 });
 
 app.get("/users", (_req: Request, res: Response) => {
-  res.status(201).json({ users });
+  const result: { users: TUser[] } = { users };
+  res.status(201).json(result);
 });
 
 export default app;

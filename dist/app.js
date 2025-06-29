@@ -11,7 +11,6 @@ app.use(express_1.default.static(path_1.default.join(__dirname, "../public")));
 app.get("/", (_req, res) => {
     res.sendFile(path_1.default.join(__dirname, "../public/index.html"));
 });
-app.use(express_1.default.static(path_1.default.join(__dirname, "../public")));
 app.get("/hello", (_req, res) => {
     res.json({ msg: "Hello world!" });
 });
@@ -25,11 +24,12 @@ app.post("/sum", (req, res) => {
 });
 const users = [];
 app.post("/users", (req, res) => {
-    const { name, email } = req.body;
-    users.push({ name, email });
+    const user = req.body;
+    users.push(user);
     res.json({ message: "User successfully added" });
 });
 app.get("/users", (_req, res) => {
-    res.status(201).json({ users });
+    const result = { users };
+    res.status(201).json(result);
 });
 exports.default = app;
